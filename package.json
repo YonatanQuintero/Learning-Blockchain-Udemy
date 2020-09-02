@@ -1,0 +1,41 @@
+{
+    "name": "aprende-blockchain",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Yonatan Quintero",
+    "license": "MIT",
+    "private": false,
+    "devDependencies": {
+        "@babel/core": "^7.10.4",
+        "@babel/node": "^7.10.4",
+        "@babel/preset-env": "^7.10.4",
+        "eslint": "^7.4.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.22.0",
+        "jest": "^26.1.0",
+        "nodemon": "^2.0.4"
+    },
+    "scripts": {
+        "start": "babel-node ./src/services/index.js",
+        "start:2": "set HTTP_PORT=3001 && set P2P_PORT=5001 && set PEERS=ws:localhost:5000 && yarn start",
+        "start:3": "set HTTP_PORT=3002 && set P2P_PORT=5002 && set PEERS=ws:localhost:5000,ws:localhost:5001 && yarn start",
+        "nodemon": "nodemon --exec yarn start",
+        "lint": "eslint index.js",
+        "test": "jest",
+        "test:watch": "jest --watchAll",
+        "miner": "babel-node miner.js"
+    },
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "crypto-js": "^4.0.0",
+        "elliptic": "^6.5.3",
+        "express": "^4.17.1",
+        "uuid": "^8.3.0",
+        "ws": "^7.3.1"
+    },
+    "jest": {
+        "silent": true,
+        "verbose": true,
+        "testEnvironment": "node"
+    }
+}
